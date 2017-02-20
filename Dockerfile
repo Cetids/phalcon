@@ -40,8 +40,6 @@ RUN set -ex \
 
 ENV PHALCON_VERSION=3.0.3
 
-
-
 # Compile Phalcon
 RUN set -xe && \
         curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz && \
@@ -54,3 +52,5 @@ RUN set -xe && \
         mv phalcon-devtools-${PHALCON_VERSION} /usr/local/phalcon-devtools && \
         ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon
 
+COPY ./php7-fpm/php.ini /usr/local/etc/php/php.ini
+COPY ./php7-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
