@@ -13,7 +13,7 @@ services:
    test:
      depends_on:
        - test_db
-     image: php-fpm
+     image: cetids/phalcon
      ports:
        - "19002:9000"
      restart: always
