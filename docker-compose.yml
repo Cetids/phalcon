@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+   test_db:
+     image: mariadb:latest
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: test
+       MYSQL_DATABASE: test
+       MYSQL_USER: test
+       MYSQL_PASSWORD: test
+
+   test:
+     depends_on:
+       - test_db
+     image: php-fpm
+     ports:
+       - "19002:9000"
+     restart: always
