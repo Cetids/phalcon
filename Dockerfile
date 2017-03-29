@@ -50,6 +50,7 @@ RUN set -xe && \
         curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_VERSION}.tar.gz && \
         tar xzf v${PHALCON_VERSION}.tar.gz && \
         mv phalcon-devtools-${PHALCON_VERSION} /usr/local/phalcon-devtools && \
+	rm -rf v${PHALCON_VERSION}.tar.gz && \
         ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon
 
 COPY ./php7-fpm/php.ini /usr/local/etc/php/php.ini
